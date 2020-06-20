@@ -12,6 +12,7 @@ function App() {
       .json()
       .then(res => setProducts(res))
       .catch(err => setErrors(err));
+      console.log("data is ", products)
   }
 
   useEffect(() => {
