@@ -2,10 +2,14 @@ import React from 'react'
 
 
 function ProductGroup(props) {
-    const {name } = props
+    const {items } = props
     return (
         <div>
-            {name}
+            {items.map((item) => {
+                return (
+                <li>{item.name}</li>
+                )
+            })}
         </div>
     )
 }

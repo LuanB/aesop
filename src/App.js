@@ -25,15 +25,18 @@ function App() {
 
   const AccordionComponent = () => {
     const {categories} = products;
+    
+    console.log(products);
     return(
     <Accordion>
-    {categories.map(({ name }, index) => (
+    {categories.map(({ name, items }, index) => (
       <Card key={index}>
         <Accordion.Toggle element={Card.Header} eventKey={index}>
           {index + 1}. {name}
         </Accordion.Toggle>
         <Accordion.Collapse eventKey={index} element={Card.Body}>
-         <ProductGroup name={name} />
+         <ProductGroup items={items} />
+
         </Accordion.Collapse>
       </Card>
     ))}
