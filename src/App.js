@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import Accordion from './components/Accordion';
 import Card from './components/Card';
+import ProductGroup from './components/product-group/product-group.component'
 import './App.css';
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
           {index + 1}. {name}
         </Accordion.Toggle>
         <Accordion.Collapse eventKey={index} element={Card.Body}>
-          {name}
+         <ProductGroup name={name} />
         </Accordion.Collapse>
       </Card>
     ))}
