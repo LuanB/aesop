@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>Accordion</div>
+      <div>Aesop Accordion Coding Challenge </div>
     {products ? <AccordionComponent /> : null}
     </div>
   );
