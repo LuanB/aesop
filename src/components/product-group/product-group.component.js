@@ -7,10 +7,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Slide from '@material-ui/core/Slide';
-import {motion} from 'framer-motion';
-import ItemVariants from '../item-variants/item-variants.component'
-import Accordion from '../Accordion/'
-import Card from '../Card'
+
 import './Product-group.styles.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -29,13 +26,9 @@ function ProductGroup(props) {
     const [checked, setChecked] = React.useState(false);
     const [itemsVariant, setItemsVariant] = React.useState(null);
 
-
-
     const handleClick = (item) => {
             console.log("handel click item is ", item)
             const {items} = item
-          //  setChecked(false);
-         //   setChecked(true);
             setChecked((prev) => !prev);
             setItemsVariant(items)
         
@@ -45,8 +38,6 @@ function ProductGroup(props) {
         <div className="ItemContainer" >
             <div className="Item" >
 
-
-        
             {items.map((item, index) => {
                 console.log("An item is ", item)
                 return (
@@ -54,12 +45,10 @@ function ProductGroup(props) {
                       <Button 
                        onClick={() => handleClick(item)} variant="outlined" size="large" color="primary" className={classes.margin}>
              {item.name}
-        </Button>
-                
+        </Button>     
                 </div>
                 )
             })}
-
 </div>
 
 <Slide direction="right" in={checked} mountOnEnter unmountOnExit>
@@ -82,29 +71,22 @@ function ProductGroup(props) {
        <div>
        Price {productVariant.price}
        </div>
+       <img src={`https://www.aesop.com${productVariant.thumbnail}`} />
      </ExpansionPanelDetails>
    </ExpansionPanel>
-
              
                    ) 
 
-
                }
-   
-               )
+              )
                }
-
-
-
 
           </Paper>
         </Slide>
-
-    
+   
         </div>
     )
 }
-
 
 
 export default ProductGroup
