@@ -22,7 +22,7 @@ function App() {
     fetchData();
   }, []);
 
-  const Accordion = () => {
+  const AccordionComponent = () => {
     const {categories} = products;
     return(
     <Accordion>
@@ -42,7 +42,8 @@ function App() {
 
   return (
     <div className="App">
-    {products ? <Accordion/> : null}
+      <div>Accordion</div>
+    {products ? <AccordionComponent /> : null}
     </div>
   );
 }
