@@ -7,9 +7,11 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Slide from '@material-ui/core/Slide';
+import {motion} from 'framer-motion';
 import ItemVariants from '../item-variants/item-variants.component'
 import Accordion from '../Accordion/'
 import Card from '../Card'
+import './Product-group.styles.css'
 
 const useStyles = makeStyles((theme) => ({
     margin: {
@@ -20,20 +22,6 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-//   {item.items.map(({ name, variants }, index) => (
-//     <Card key={index}>
-//       <Accordion.Toggle element={Card.Header} eventKey={index}>
-//         {index + 1}. {name}
-//       </Accordion.Toggle>
-//       <Accordion.Collapse eventKey={index} element={Card.Body}>
-//       {name}
-
-//       </Accordion.Collapse>
-//     </Card>
-//   ))}
-
-
-// <ItemVariants key={index} itemVariants={item.items}/> 
 function ProductGroup(props) {
     const {items } = props
     console.log("items is ", items);
@@ -54,25 +42,32 @@ function ProductGroup(props) {
     }
 
     return (
-        <div>
+        <div className="ItemContainer" >
+            <div className="Item" >
+
+
+        
             {items.map((item, index) => {
                 console.log("An item is ", item)
                 return (
-                    <>
-                      <Button onClick={() => handleClick(item)} variant="outlined" size="large" color="primary" className={classes.margin}>
-                {item.name}
+                    <div key={index}>
+                      <Button 
+                       onClick={() => handleClick(item)} variant="outlined" size="large" color="primary" className={classes.margin}>
+             {item.name}
         </Button>
                 
-                </>
+                </div>
                 )
             })}
 
+</div>
+
 <Slide direction="right" in={checked} mountOnEnter unmountOnExit>
           <Paper elevation={4} className={classes.paper}>
-          { itemsVariant && itemsVariant.map( productVariant => {
+          { itemsVariant && itemsVariant.map( (productVariant,index) => {
                    console.log("in product variant is ", productVariant)
                    return (
-     <ExpansionPanel>
+     <ExpansionPanel key={index}>
      <ExpansionPanelSummary
        expandIcon={<ExpandMoreIcon />}
        aria-controls="panel1a-content"
