@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App container should match snapshot 1`] = `""`;
+exports[`App container should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <div>
+    Aesop Accordion Coding Challenge 
+  </div>
+</div>
+`;

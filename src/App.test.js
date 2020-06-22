@@ -1,5 +1,5 @@
 import React from 'react';
-import  {shallow} from 'enzyme';
+import  {shallow, mount} from 'enzyme';
 import App from './App';
 import Accordion from './components/Accordion'
 import Card from './components/Card'
@@ -33,5 +33,24 @@ describe('App container', () => {
 
 
  })
+
+ it("should not display Accordion if no products", () => {
+
+    const mockData = {
+        categories: [
+            {name: 'Cat1', items: [{name:'Item1', items:[{name: 'Product1', price: 'From $100', thumbnail: '/test/test.png'}]}]},
+            {name: 'Cat2', items: [{name:'Item2', items:[{name: 'Product2', price: 'From $200', thumbnail: '/test/test2.png'}]}]},
+        ]
+    }
+   
+    const wrapper = mount(<App/>);
+
+    
+    wrapper.setState({products: mockData, hasError: false });
+    console.log(wrapper.debug());
+   //expect(wrapper).containsMatchingElement(<Accordion/>).toBeTruthy();
+  
+  
+   })
 
 })

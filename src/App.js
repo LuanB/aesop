@@ -29,7 +29,7 @@ function App() {
     )
   }
 
-  const AccordionComponent = () => {
+   const AccordionComponent = () => {
     const {categories} = products;
     
     console.log(products);
