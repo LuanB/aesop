@@ -51,12 +51,12 @@ function ProductGroup(props) {
             })}
 </div>
 
-<Slide direction="right" in={checked} mountOnEnter unmountOnExit>
+<Slide className="Slide" direction="right" in={checked} mountOnEnter unmountOnExit>
           <Paper elevation={4} className={classes.paper}>
           { itemsVariant && itemsVariant.map( (productVariant,index) => {
                    console.log("in product variant is ", productVariant)
                    return (
-     <ExpansionPanel key={index}>
+     <ExpansionPanel className="ExpansionPanel" key={index}>
      <ExpansionPanelSummary
        expandIcon={<ExpandMoreIcon />}
        aria-controls="panel1a-content"
@@ -68,7 +68,7 @@ function ProductGroup(props) {
        <div>
         {productVariant.shortDescription}
        </div>
-       <div>
+       <div className="price">
        Price {productVariant.price}
        </div>
        <img src={`https://www.aesop.com${productVariant.thumbnail}`} />
