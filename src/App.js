@@ -15,7 +15,7 @@ function App() {
     res
       .json()
       .then(res => setProducts(res))
-      .catch(err => setErrors(err));
+      .catch(err => setErrors(true));
      
   }
 
@@ -23,11 +23,19 @@ function App() {
     fetchData();
   }, []);
 
+  const ErrorComponent = () => {
+    return (
+      <div>handle Error occurred screen</div>
+    )
+  }
+
   const AccordionComponent = () => {
     const {categories} = products;
     
     console.log(products);
     return(
+      hasError ? <ErrorComponent /> :
+
     <Accordion>
     {categories.map(({ name, items }, index) => (
       <Card key={index}>
@@ -41,6 +49,7 @@ function App() {
       </Card>
     ))}
   </Accordion>
+    
   )
     }
 
